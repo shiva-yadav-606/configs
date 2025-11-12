@@ -3,6 +3,7 @@ export PATH=$HOME/.venv/bin:$HOME/.local/bin:$PATH
 unsetopt beep 
 setopt prompt_subst
 export PS1='%F{cyan}%B%~%b%f %F{green}$%f%F{red}$(git_branch_name)%f '
+eval "$(dircolors)"
 
 # operations
 function sd() {
@@ -43,6 +44,16 @@ function git_branch_name()
 }
 
 # Aliases
-alias ls='ls --color=auto -hv'
+alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
+alias rm='rm -i'
+alias la='ls -ah'
+alias ll='ls -lah'
+alias kitty='kitty --config ~/.kitty.conf'
+
+#oh-my-zsh
+# export ZSH="$HOME/.oh-my-zsh"
+# ZSH_THEME="robbyrussell"
+# plugins=(git z zsh-autosuggestions)
+# source $ZSH/oh-my-zsh.sh
