@@ -1,10 +1,15 @@
 # zsh
 export PATH=$HOME/.venv/bin:$HOME/.local/bin:$PATH
-unsetopt beep 
 export PS1='%F{cyan}%B%~%b%f %F{green}$%f%F{red}$(git_branch_name)%f '
 setopt prompt_subst
+unsetopt beep 
 eval "$(dircolors)"
-export KITTY_DISABLE_WAYLAND=1
+bindkey -e
+
+#zsh-history
+HISTFILE=~/.zsh_history    
+HISTSIZE=100000           
+SAVEHIST=100000           
 
 #oh-my-zsh
 # export ZSH="$HOME/.oh-my-zsh"
@@ -34,19 +39,19 @@ function tm(){
       tmux new-session -s kode
   fi
 }
-function pws(){
-  current_dir=$(pwd)
-  win_path=$(wslpath -w "$current_dir")
-  pwsh.exe -NoExit -Command "Set-Location '$win_path'"
-}
 function git_branch_name(){
   branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
   if [[ $branch == "" ]];
   then
   :
   else
-    echo '('$branch')'
+    echo ' '$branch''
   fi
+}
+function pws(){
+  current_dir=$(pwd)
+  win_path=$(wslpath -w "$current_dir")
+  pwsh.exe -NoExit -Command "Set-Location '$win_path'"
 }
 
 # Aliases
@@ -58,5 +63,4 @@ alias la='ls -ah'
 alias ll='ls -lah'
 alias lgrep='ls | grep'
 alias hgrep='history | grep'
-alias testing='watch -n 1 nvidia-smi'
-alias kitty='kitty --config ~/.kitty.conf'
+alias check='watch -n 1'
