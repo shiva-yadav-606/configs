@@ -25,7 +25,7 @@ function sd() {
     cd "$file"
   fi
 }
-function s() {
+function sf() {
   local file
   file=$(find . | fzf --query="$1" --select-1 --exit-0)
   if [[ -n $file ]]; then
