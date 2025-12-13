@@ -5,6 +5,7 @@ setopt prompt_subst
 unsetopt beep 
 eval "$(dircolors)"
 bindkey -e
+export KITTY_DISABLE_WAYLAND=1
 
 #zsh-history
 HISTFILE=~/.zsh_history    
