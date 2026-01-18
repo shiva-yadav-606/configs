@@ -23,13 +23,6 @@ function sd() {
   local file
   file=$(find . | fzf --query="$1" --select-1 --exit-0)
   if [[ -n $file ]]; then
-    cd "$file"
-  fi
-}
-function sf() {
-  local file
-  file=$(find . | fzf --query="$1" --select-1 --exit-0)
-  if [[ -n $file ]]; then
     code "$file"
   fi
 }
@@ -54,7 +47,7 @@ function pws(){
   win_path=$(wslpath -w "$current_dir")
   pwsh.exe -NoExit -Command "Set-Location '$win_path'"
 }
-function push(){
+function psh(){
   git add .
   git commit -m "push"
   git push
