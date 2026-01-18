@@ -54,6 +54,12 @@ function pws(){
   win_path=$(wslpath -w "$current_dir")
   pwsh.exe -NoExit -Command "Set-Location '$win_path'"
 }
+function push(){
+  git add .
+  git commit -m "push"
+  git push
+}
+
 
 # Aliases
 alias ls='ls --color=auto'
