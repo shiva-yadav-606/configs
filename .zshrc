@@ -1,13 +1,13 @@
 # zsh
 export PATH=$HOME/.venv/bin:$HOME/.local/bin:$PATH
+export KITTY_DISABLE_WAYLAND=1
+unsetopt beep 
+bindkey -e
+
+#zsh
 export PS1='%F{cyan}%B%~%b%f %F{green}$%f%F{red}$(git_branch_name)%f '
 setopt prompt_subst
-unsetopt beep 
 eval "$(dircolors)"
-bindkey -e
-export KITTY_DISABLE_WAYLAND=1
-
-#zsh-history
 HISTFILE=~/.zsh_history    
 HISTSIZE=100000           
 SAVEHIST=100000           
@@ -69,5 +69,5 @@ alias rm='rm -i'
 alias la='ls -ah'
 alias ll='ls -lah'
 alias lgrep='la | grep'
-alias hgrep='history | grep'
+alias hgrep='history 1 | grep'
 alias check='watch -n 1'
