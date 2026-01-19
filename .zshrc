@@ -25,6 +25,7 @@ function sd() {
   if [[ -n $file ]]; then
     code "$file"
   fi
+  # i3 workspace 2
 }
 function tm(){
   if tmux has-session -t kode 2>/dev/null; then
