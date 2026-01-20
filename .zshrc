@@ -3,6 +3,8 @@ export PATH=$HOME/.venv/bin:$HOME/.local/bin:$PATH
 export KITTY_DISABLE_WAYLAND=1
 unsetopt beep 
 bindkey -e
+bindkey '^[[1;5C' forward-word     
+bindkey '^[[1;5D' backward-word    
 
 #zsh
 export PS1='%F{cyan}%B%~%b%f %F{green}$%f%F{red}$(git_branch_name)%f '
@@ -21,11 +23,18 @@ SAVEHIST=100000
 # functions
 function sd() {
   local file
-  file=$(find . | fzf --query="$1" --select-1 --exit-0)
+  file=$(find ~ | fzf --query="$1" --select-1 --exit-0)
+  if [[ -n $file ]]; then
+    cd "$file"
+  fi
+}
+function sf() {
+  local file
+  file=$(find ~ | fzf --query="$1" --select-1 --exit-0)
   if [[ -n $file ]]; then
     code "$file"
   fi
-  # i3 workspace 2
+  i3 workspace 2
 }
 function tm(){
   if tmux has-session -t kode 2>/dev/null; then
