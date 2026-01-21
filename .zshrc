@@ -5,6 +5,7 @@ unsetopt beep
 bindkey -e
 bindkey '^[[1;5C' forward-word     
 bindkey '^[[1;5D' backward-word    
+bindkey '^H' backward-kill-word
 
 #zsh
 export PS1='%F{cyan}%B%~%b%f %F{green}$%f%F{red}$(git_branch_name)%f '
