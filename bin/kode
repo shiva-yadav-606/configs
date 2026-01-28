@@ -1,0 +1,6 @@
+#!/bin/sh
+if tmux has-session -t kode 2>/dev/null; then
+    tmux attach-session -t kode
+else
+    tmux new-session -s kode
+fi
