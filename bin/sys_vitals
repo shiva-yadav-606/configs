@@ -1,0 +1,14 @@
+#!/bin/sh
+
+echo watts      = $(battery_watt)
+echo ""
+echo syncthing  = $(is_running syncthing)
+echo ""
+echo fan speed  = $(sensors | grep cpu_fan | awk '{print $2,$3}')
+echo ""
+echo gpu usage  = $(nvidia-smi | grep % |awk '{print $13}')
+echo ""
+echo nmve temp  = $(sensors | grep "id 0" | awk '{print $4}')
+echo ""
+echo mode       = $(powerprofilesctl get)
+echo ""

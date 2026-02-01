@@ -1,0 +1,11 @@
+#!/bin/bash
+is_running() {
+    pgrep -x "$1" >/dev/null
+}
+
+if is_running $1; then
+    kill -9 $(pgrep $1 | head -n 1)
+    echo "$1 terminated"
+else
+    echo "$1 Not running"
+fi
