@@ -59,8 +59,8 @@ function pws(){
 }
 function psh(){
   git add .
-  git commit -m "push"
-  git push
+  git commit -m "$1"
+  git push 
 }
 
 
