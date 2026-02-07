@@ -8,7 +8,8 @@ bindkey '^[[1;5D' backward-word
 bindkey '^H' backward-kill-word
 
 #zsh
-export PS1='%F{cyan}%B%~%b%f %F{green}$%f%F{red}$(git_branch_name)%f '
+precmd() { print "" }
+export PS1='%F{cyan}%~%f%F{red}$(git_branch_name)%f %F{green}$%f '
 setopt prompt_subst
 eval "$(dircolors)"
 HISTFILE=~/.zsh_history    
@@ -49,7 +50,7 @@ function git_branch_name(){
   then
   :
   else
-    echo ' '$branch''
+    echo ' ('$branch')'
   fi
 }
 function pws(){
