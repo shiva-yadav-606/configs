@@ -8,7 +8,6 @@ bindkey '^[[1;5D' backward-word
 bindkey '^H' backward-kill-word
 
 #zsh
-precmd() { print "" }
 export PS1='%F{cyan}%~%f%F{red}$(git_branch_name)%f %F{green}$%f '
 setopt prompt_subst
 eval "$(dircolors)"
