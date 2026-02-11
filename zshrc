@@ -1,4 +1,4 @@
-# zsh
+# profile
 export PATH=$HOME/.venv/bin:$HOME/.local/bin:$PATH
 export KITTY_DISABLE_WAYLAND=1
 unsetopt beep 
@@ -7,7 +7,7 @@ bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word    
 bindkey '^H' backward-kill-word
 
-#zsh
+# zsh
 export PS1='%F{cyan}%~%f%F{red}$(git_branch_name)%f %F{green}$%f '
 setopt prompt_subst
 eval "$(dircolors)"
@@ -15,13 +15,13 @@ HISTFILE=~/.zsh_history
 HISTSIZE=100000           
 SAVEHIST=100000           
 
-#oh-my-zsh
+# oh-my-zsh
 # export ZSH="$HOME/.oh-my-zsh"
 # ZSH_THEME="robbyrussell"
 # plugins=(git z zsh-autosuggestions)
 # source $ZSH/oh-my-zsh.sh
 
-# functions
+# scripts
 function sd() {
   local file
   file=$(find ~ | fzf --query="$1" --select-1 --exit-0)
@@ -62,7 +62,6 @@ function psh(){
   git commit -m "$1"
   git push 
 }
-
 
 # Aliases
 alias ls='ls --color=auto'
