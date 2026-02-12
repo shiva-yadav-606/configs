@@ -15,12 +15,6 @@ HISTFILE=~/.zsh_history
 HISTSIZE=100000           
 SAVEHIST=100000           
 
-# oh-my-zsh
-# export ZSH="$HOME/.oh-my-zsh"
-# ZSH_THEME="robbyrussell"
-# plugins=(git z zsh-autosuggestions)
-# source $ZSH/oh-my-zsh.sh
-
 # scripts
 function sd() {
   local file
