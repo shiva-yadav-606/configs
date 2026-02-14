@@ -1,6 +1,7 @@
 # profile
-export PATH=$HOME/.venv/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/.venv/bin:$PATH
 export KITTY_DISABLE_WAYLAND=1
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
 unsetopt beep 
 bindkey -e
 bindkey '^[[1;5C' forward-word     
@@ -8,7 +9,7 @@ bindkey '^[[1;5D' backward-word
 bindkey '^H' backward-kill-word
 
 # zsh
-export PS1='%F{cyan}%~%f%F{red}$(git_branch_name)%f %F{green}$%f '
+export PS1=' %F{cyan}%~%f%F{red}$(git_branch_name)%f %F{green}$%f '
 setopt prompt_subst
 eval "$(dircolors)"
 HISTFILE=~/.zsh_history    
@@ -61,6 +62,9 @@ function psh(){
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
+alias install='sudo nala install'
+alias update='sudo nala update'
+alias upgrade='sudo nala update && sudo nala upgrade -y'
 alias rm='rm -i'
 alias la='ls -ah'
 alias ll='ls -lah'
